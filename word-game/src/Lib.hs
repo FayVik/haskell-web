@@ -1,16 +1,28 @@
 module Lib
-  ( someFunc,
-    someString,
-    grid,
+  ( grid,
+    formatGrid,
     languages,
+    outputGrid,
+    findWord,
+    findWordInLine,
   )
 where
 
-someFunc :: IO ()
-someFunc = putStrLn someString
+import Data.List (isInfixOf)
 
-someString :: String
-someString = "someString"
+type Grid = [String]
+
+outputGrid :: Grid -> IO ()
+outputGrid grid = putStrLn (formatGrid grid)
+
+formatGrid :: Grid -> String
+formatGrid = unlines
+
+findWord :: Grid -> String -> Bool
+findWord = undefined
+
+findWordInLine :: String -> String -> Bool
+findWordInLine word line = word `isInfixOf` line
 
 grid =
   [ "_ _C_ _ _ _ _ _ _ _R_ _",
